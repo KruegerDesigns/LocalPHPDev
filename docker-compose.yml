@@ -1,0 +1,38 @@
+services:
+  web:
+    build: ./apache
+    ports:
+      - "80:80"
+    volumes:
+      - ../sites:/var/www/sites
+      - ../logs:/usr/local/apache2/logs
+    networks:
+      - localnet
+
+  php:
+    image: php:8.0-fpm
+    volumes:
+      - ../sites:/var/www/sites
+    networks:
+      - localnet
+
+  dns:
+    image: andyshinn/dnsmasq:2.78
+    platform: linux/amd64
+    ports:
+      - "53:53/udp"
+    environment:
+      - DNS_DOMAIN=loc
+    command: [
+      "--no-daemon",
+      "--log-queries",
+      "--log-facility=-",
+      "--server=8.8.8.8",
+      "--address=/loc/127.0.0.1"
+    ]
+    networks:
+      - localnet
+
+networks:
+  localnet:
+    driver: bridge
