@@ -24,7 +24,7 @@ build:
 
 # Build and start the Docker containers.
 .PHONY: up
-up:
+up: .env
 	docker-compose up --build
 
 # Stop and remove the Docker containers.
@@ -64,3 +64,9 @@ pull-images:
 	docker pull httpd:2.4
 	docker pull php:8.0-fpm
 	docker pull andyshinn/dnsmasq:2.78
+
+# Ensure .env file exists
+.PHONY: .env
+.env:
+	if [ ! -f .env ]; then echo "Please create a .env file with the required environment variables"; exit 1; fi
+	
