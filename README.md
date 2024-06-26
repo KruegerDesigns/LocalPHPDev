@@ -4,7 +4,7 @@ This repository provides a local PHP development environment using Docker, Apach
 
 ## Acknowledgments
 
-This project was inspired by the work of [Chris Cherry](https://github.com/ctcherry). Special thanks for their valuable ideas and years of support.
+This project was inspired by the work of [Chris Cherry](https://github.com/ctcherry). Special thanks for his valuable ideas and years of support.
 
 ## Features
 
