@@ -4,8 +4,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ../../Projects/Sites:/var/www/sites
-      - ../../Projects/Sites/logs:/usr/local/apache2/logs
+      - ${SITES_PATH}:/var/www/sites
+      - ${LOGS_PATH}:/usr/local/apache2/logs
     networks:
       - localnet
 
