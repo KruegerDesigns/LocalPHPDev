@@ -38,6 +38,7 @@ This project was inspired by the work of [Chris Cherry](https://github.com/ctche
    │   ├── site1.loc/
    │   └── test.loc/
    ├── logs/
+   ├── .env
    ├── docker-compose.yml
    ├── Makefile
    └── apache/
@@ -45,7 +46,18 @@ This project was inspired by the work of [Chris Cherry](https://github.com/ctche
        └── vhost.conf
    ```
 
-3. **Set Up DNS Resolution**
+3. **Set Up .env Variables**
+
+   Set the paths to where you will be creating your Website folders, also set the path to where you would like the server logs stored.
+
+   In the `.env` file setup the correct paths, `USERNAME` should be changed to your local user:
+
+   ```sh
+   SITES_PATH=/Users/USERNAME/Projects/Sites
+   LOGS_PATH=/Users/USERNAME/Projects/Sites/logs
+   ```
+
+4. **Set Up DNS Resolution**
 
    Ensure your macOS system is set up to resolve `.loc` domains by creating the `/etc/resolver/loc` file with the following content:
 
